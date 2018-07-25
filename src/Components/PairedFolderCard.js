@@ -1,12 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { colors } from '../Config/styles';
+import { icons } from '../../Assets/Images';
+import TextAndIcon from './TextAndIcon';
 
 const PairedFolderCard = ({ folder }) => (
   <View style={styles.container}>
     <View style={styles.textRow}>
       <Text style={styles.text}>{folder.name}</Text>
-      <Text style={styles.text}>Status: {folder.status}</Text>
+      <TextAndIcon text="Status: " icon={icons[folder.status]} />>
     </View>
     <View style={styles.textRow}>
       <Text style={styles.text}>Size: {folder.size}</Text>
@@ -24,6 +26,7 @@ const styles = StyleSheet.create({
     height: '20%',
     margin: 20,
     borderWidth: 2,
+    borderColor: colors.gray,
     borderRadius: 20,
     overflow: 'hidden',
   },
@@ -36,6 +39,6 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 20,
-    padding: 5,
+    padding: 4,
   },
 });
