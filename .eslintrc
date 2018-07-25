@@ -28,6 +28,7 @@
   "react/no-unescaped-entities": "off",
   "react/no-array-index-key": "off",
   "prefer-promise-reject-errors": "off",
+  "react/prop-types": 0,
   "prettier/prettier": [
    "error",
    {

@@ -1,21 +1,41 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { colors } from '../Config/styles';
 
-const PairedFolderCard = () => (
-    <View>
-
-      <Text>test</Text>
+const PairedFolderCard = ({ folder }) => (
+  <View style={styles.container}>
+    <View style={styles.textRow}>
+      <Text style={styles.text}>{folder.name}</Text>
+      <Text style={styles.text}>Status: {folder.status}</Text>
     </View>
-)
+    <View style={styles.textRow}>
+      <Text style={styles.text}>Size: {folder.size}</Text>
+      <Text style={styles.text}>Devices: {folder.devices}</Text>
+    </View>
+  </View>
+);
 
 export default PairedFolderCard;
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    width: '80%',
+    height: '20%',
+    margin: 20,
+    borderWidth: 2,
+    borderRadius: 20,
+    overflow: 'hidden',
+  },
+  textRow: {
+    backgroundColor: colors.gray,
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    padding: 10,
+  },
+  text: {
+    fontSize: 20,
+    padding: 5,
   },
 });
-

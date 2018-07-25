@@ -1,24 +1,60 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, ScrollView } from 'react-native';
 import PairedFolderCard from '../Components/PairedFolderCard';
 
 export default class PairedFolders extends React.Component {
   state = {
-    folders: [1, 2],
+    folders: [
+      {
+        id: 1,
+        name: 'music',
+        status: 'X',
+        size: '1.0gb',
+        devices: 2,
+      },
+      {
+        id: 2,
+        name: 'games',
+        status: 'O',
+        size: '0.5gb',
+        devices: 2,
+      },
+      {
+        id: 3,
+        name: 'stuff >.>',
+        status: 'X',
+        size: '1.5gb',
+        devices: 2,
+      },
+      {
+        id: 4,
+        name: 'music',
+        status: 'X',
+        size: '1.0gb',
+        devices: 2,
+      },
+      {
+        id: 5,
+        name: 'games',
+        status: 'O',
+        size: '0.5gb',
+        devices: 2,
+      },
+    ],
   };
 
   render() {
     const { folders } = this.state;
-
     const pairedFolders = folders.map(folder => (
-      <PairedFolderCard key={folder} />
+      <PairedFolderCard folder={folder} key={folder.id} />
     ));
-
     return (
-      <View>
-        <Text>hi</Text>
+      <ScrollView
+        style={styles.container}
+        contentContainerStyle={{ alignItems: 'center' }}
+      >
         {pairedFolders}
-      </View>
+      </ScrollView>
     );
   }
 }
@@ -27,7 +63,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    width: '100%',
   },
 });

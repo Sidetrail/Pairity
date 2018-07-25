@@ -1,6 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import PairedFolderCard from './src/Components/PairedFolderCard';
+import { StyleSheet, View } from 'react-native';
 import PairedFolders from './src/Screens/PairedFolders';
 
 export default class App extends React.Component {
@@ -8,7 +7,6 @@ export default class App extends React.Component {
     return (
       <View style={styles.container}>
         <PairedFolders />
-        <PairedFolderCard />
       </View>
     );
   }
@@ -20,5 +18,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    overflow: 'scroll',
   },
 });
