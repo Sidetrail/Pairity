@@ -8,22 +8,26 @@
     "react-native": "~0.55.2"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-eslint": "^8.2.6",
     "babel-jest": "22.2.2",
     "babel-plugin-module-resolver": "^3.1.1",
     "babel-plugin-syntax-async-functions": "^6.13.0",
     "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-preset-env": "^1.5.2",
+    "babel-preset-flow": "^6.23.0",
     "babel-preset-react-native": "4.0.0",
     "eslint": "^5.2.0",
-    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-airbnb": "^17.0.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-import-resolver-babel-module": "^4.0.0",
-    "eslint-plugin-import": "^2.6.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-flowtype": "^2.50.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-prettier": "2.4.0",
-    "eslint-plugin-react": "^7.5.1",
+    "eslint-plugin-react": "^7.10.0",
     "eslint-plugin-react-native": "^3.2.0",
+    "flow-bin": "^0.77.0",
     "jest-expo": "~27.0.0",
     "prettier": "^1.10.2",
     "react-devtools": "^3.2.3",
@@ -37,7 +41,9 @@
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
     "test": "jest",
-    "devtools": "react-devtools"
+    "devtools": "react-devtools",
+    "build": "babel src/ -d lib/",
+    "prepublish": "yarn run build"
   },
   "jest": {
     "preset": "jest-expo"
