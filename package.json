@@ -2,9 +2,32 @@
   "name": "pairity-app",
   "version": "0.1.0",
   "private": true,
+  "dependencies": {
+    "expo": "^27.0.1",
+    "react": "16.3.1",
+    "react-native": "~0.55.2"
+  },
   "devDependencies": {
-    "react-native-scripts": "1.14.0",
+    "babel-eslint": "^8.2.6",
+    "babel-jest": "22.2.2",
+    "babel-plugin-module-resolver": "^3.1.1",
+    "babel-plugin-syntax-async-functions": "^6.13.0",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-preset-env": "^1.5.2",
+    "babel-preset-react-native": "4.0.0",
+    "eslint": "^5.2.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-import-resolver-babel-module": "^4.0.0",
+    "eslint-plugin-import": "^2.6.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-prettier": "2.4.0",
+    "eslint-plugin-react": "^7.5.1",
+    "eslint-plugin-react-native": "^3.2.0",
     "jest-expo": "~27.0.0",
+    "prettier": "^1.10.2",
+    "react-devtools": "^3.2.3",
+    "react-native-scripts": "1.14.0",
     "react-test-renderer": "16.3.1"
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
@@ -13,14 +36,10 @@
     "eject": "react-native-scripts eject",
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
-    "test": "jest"
+    "test": "jest",
+    "devtools": "react-devtools"
   },
   "jest": {
     "preset": "jest-expo"
-  },
-  "dependencies": {
-    "expo": "^27.0.1",
-    "react": "16.3.1",
-    "react-native": "~0.55.2"
   }
 }
