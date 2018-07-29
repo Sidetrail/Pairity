@@ -7,13 +7,13 @@ type Props = {
   icon: string,
 };
 
-const TextAndIcon = (props: Props) => (
+const TextAndIcon = ({ text, icon }: Props) => (
   <View style={styles.container}>
     <View>
-      <Text style={styles.text}>{props.text}</Text>
+      <Text style={styles.text}>{text}</Text>
     </View>
     <View>
-      <Image style={styles.icon} source={props.icon} />
+      <Image style={styles.icon} source={icon} />
     </View>
   </View>
 );

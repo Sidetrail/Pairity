@@ -1,18 +1,14 @@
 import React from 'react';
-import { StyleSheet, View, Image } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import PairedFolders from './src/Screens/PairedFolders';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
+const App = () => (
+  <View style={styles.container}>
+    <PairedFolders />
+  </View>
+);
 
-        <PairedFolders />
-
-      </View>
-    );
-  }
-}
+export default App;
 
 const styles = StyleSheet.create({
   container: {
