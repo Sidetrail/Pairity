@@ -1,11 +1,10 @@
 import React from 'react';
 // import { StyleSheet, View } from 'react-native';
-
 // import Header from './src/Components/Header';
 
-import Navigation from './src/Config/Navigation';
+import Navigation, { Drawer } from './src/Navigators/Navigation';
 
-const App = () => <Navigation />;
+const App = () => <Drawer />;
 
 export default App;
 

@@ -1,7 +1,8 @@
 /* @flow */
 import React from 'react';
-import { StyleSheet, ScrollView } from 'react-native';
+import { StyleSheet, ScrollView, View } from 'react-native';
 import PairedFolderCard from '../Components/PairedFolderCard';
+import Header from '../Components/Header';
 
 type State = {
   folders: Array<Object>,
@@ -60,18 +61,24 @@ export default class PairedFolders extends React.Component<null, State> {
       />
     ));
     return (
-      <ScrollView
-        style={styles.container}
-        contentContainerStyle={{ alignItems: 'center' }}
-      >
-        {pairedFolders}
-      </ScrollView>
+      <View style={styles.container}>
+        <Header />
+        <ScrollView
+          style={styles.scrollView}
+          contentContainerStyle={{ alignItems: 'center' }}
+        >
+          {pairedFolders}
+        </ScrollView>
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+  },
+  scrollView: {
     flex: 1,
     backgroundColor: '#fff',
     width: '100%',

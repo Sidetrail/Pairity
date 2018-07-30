@@ -1,8 +1,7 @@
 /* @flow */
-
 import React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-// import Header from '../Components/Header';
+import Header from '../Components/Header';
 
 type State = {
   devices: Array<Object>,
@@ -41,7 +40,12 @@ export default class Devices extends React.Component<null, State> {
       <Text key={device.id}>{device.name}</Text>
     ));
 
-    return <View style={styles.container}>{devicesList}</View>;
+    return (
+      <View style={styles.container}>
+        <Header />
+        {devicesList}
+      </View>
+    );
   }
 }
 
