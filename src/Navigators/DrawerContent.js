@@ -1,7 +1,7 @@
 /* @flow */
 import React from 'react';
 import { NavigationActions } from 'react-navigation';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, View, Button } from 'react-native';
 
 type Props = {
   navigation: any,
@@ -17,18 +17,25 @@ const DrawerContent = (props: Props) => {
 
   return (
     <View style={styles.container}>
-      <Text>Menu</Text>
       <Button
-        raised
         title="Paired Folders"
         style={styles.button}
         onPress={navigateToScreen('PairedFolders')}
       />
       <Button
-        raised
         title="Devices"
         style={styles.button}
         onPress={navigateToScreen('Devices')}
+      />
+      <Button
+        title="Settings"
+        style={styles.button}
+        onPress={navigateToScreen('Settings')}
+      />
+      <Button
+        title="Log Out"
+        style={styles.button}
+        onPress={navigateToScreen('Logout')}
       />
     </View>
   );

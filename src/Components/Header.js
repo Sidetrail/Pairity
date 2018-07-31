@@ -8,6 +8,7 @@ type Props = {
   navigation: any,
 };
 
+// rename 'headers'
 const Headers = (props: Props) => {
   const toggleDrawer = () => {
     props.navigation.toggleDrawer();
@@ -40,13 +41,3 @@ const Headers = (props: Props) => {
 };
 
 export default withNavigation(Headers);
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 0.07,
-//     margin: 10,
-//     flexDirection: 'row',
-//     padding: 5,
-//     justifyContent: 'center',
-//   },
-// });
