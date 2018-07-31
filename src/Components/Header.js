@@ -13,6 +13,7 @@ const Headers = (props: Props) => {
   const toggleDrawer = () => {
     props.navigation.toggleDrawer();
   };
+
   const navigateToHome = () => {
     const navigate = NavigationActions.navigate({
       routeName: 'PairedFolders',

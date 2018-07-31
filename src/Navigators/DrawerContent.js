@@ -19,24 +19,11 @@ const DrawerContent = (props: Props) => {
     <View style={styles.container}>
       <Button
         title="Paired Folders"
-        style={styles.button}
         onPress={navigateToScreen('PairedFolders')}
       />
-      <Button
-        title="Devices"
-        style={styles.button}
-        onPress={navigateToScreen('Devices')}
-      />
-      <Button
-        title="Settings"
-        style={styles.button}
-        onPress={navigateToScreen('Settings')}
-      />
-      <Button
-        title="Log Out"
-        style={styles.button}
-        onPress={navigateToScreen('Logout')}
-      />
+      <Button title="Devices" onPress={navigateToScreen('Devices')} />
+      <Button title="Settings" onPress={navigateToScreen('Settings')} />
+      <Button title="Log Out" onPress={navigateToScreen('Logout')} />
     </View>
   );
 };
@@ -46,9 +33,7 @@ export default DrawerContent;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: '100%',
-    paddingTop: 35,
+    justifyContent: 'space-evenly',
   },
-  text: {},
   button: {},
 });
