@@ -64,10 +64,7 @@ export default class Devices extends React.Component<null, State> {
     return (
       <View style={styles.container}>
         <Header />
-      <ScrollView>
-      {devicesList}
-
-      </ScrollView>
+        <ScrollView>{devicesList}</ScrollView>
       </View>
     );
   }

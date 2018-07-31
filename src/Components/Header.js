@@ -1,7 +1,7 @@
 /* @flow */
 import React from 'react';
-import { withNavigation, NavigationActions } from 'react-navigation';
 import { Header } from 'react-native-elements';
+import { withNavigation, NavigationActions } from 'react-navigation';
 import { colors } from '../Config/styles';
 
 type Props = {

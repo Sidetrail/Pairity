@@ -3,11 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "axios": "^0.18.0",
     "expo": "^27.0.1",
+    "lodash": "^4.17.10",
     "react": "16.3.1",
     "react-native": "~0.55.2",
     "react-native-elements": "^0.19.1",
-    "react-navigation": "^2.9.3"
+    "react-navigation": "^2.9.3",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-persist": "^5.10.0",
+    "redux-saga": "^0.16.0",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
@@ -34,7 +41,8 @@
     "prettier": "^1.10.2",
     "react-devtools": "^3.2.3",
     "react-native-scripts": "1.14.0",
-    "react-test-renderer": "16.3.1"
+    "react-test-renderer": "16.3.1",
+    "redux-devtools": "^3.4.1"
   },
   "main": "./node_modules/react-native-scripts/build/bin/crna-entry.js",
   "scripts": {
