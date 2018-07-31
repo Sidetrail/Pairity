@@ -20,11 +20,12 @@ export default InputWithLabel;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    height: 100,
   },
   label: {
     textAlign: 'center',
     fontSize: 30,
+    padding: 5,
   },
   inputContainer: {
     flex: 1,
@@ -33,7 +34,8 @@ const styles = StyleSheet.create({
   input: {
     borderBottomColor: '#000000',
     borderWidth: 1,
-    height: '20%',
+    borderRadius: 10,
+    height: 40,
     width: '70%',
   },
 });

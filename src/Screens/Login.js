@@ -24,7 +24,9 @@ export default class Login extends React.Component<null, State> {
         <View style={styles.inputContainer}>
           <InputWithLabel label="Username" onPress="test" />
           <InputWithLabel label="Password" onPress="test" />
-          <Button style={styles.button} title="Submit" onPress={() => null} />
+          <View style={styles.buttonContainer}>
+            <Button style={styles.button} title="Submit" onPress={() => null} />
+          </View>
         </View>
       </View>
     );
@@ -40,10 +42,13 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   inputContainer: {
-    flex: 0.7,
-    height: '60%',
+    flex: 1,
+    justifyContent: 'center',
+  },
+  buttonContainer: {
+    width: '80%',
   },
   button: {
-    width: '70%',
+    
   },
 });
