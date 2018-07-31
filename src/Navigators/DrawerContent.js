@@ -3,7 +3,11 @@ import React from 'react';
 import { NavigationActions } from 'react-navigation';
 import { StyleSheet, Text, View, Button } from 'react-native';
 
-const DrawerContent = props => {
+type Props = {
+  navigation: any,
+};
+
+const DrawerContent = (props: Props) => {
   const navigateToScreen = route => () => {
     const navigate = NavigationActions.navigate({
       routeName: route,

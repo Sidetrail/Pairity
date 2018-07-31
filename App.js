@@ -1,8 +1,6 @@
 import React from 'react';
-// import { StyleSheet, View } from 'react-native';
-// import Header from './src/Components/Header';
 
-import Navigation, { Drawer } from './src/Navigators/Navigation';
+import { Drawer } from './src/Navigators/Navigation';
 
 const App = () => <Drawer />;
 
