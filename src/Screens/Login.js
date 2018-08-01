@@ -2,6 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { StyleSheet, View, Text } from 'react-native';
+import Reactotron from 'reactotron-react-native';
 import { Button } from 'react-native-elements';
 import { withNavigation, NavigationActions } from 'react-navigation';
 import { loginAction } from '../Store/Actions/Login';
@@ -31,19 +32,34 @@ class Login extends React.Component<Props, State> {
     this.props.navigation.dispatch(navigate);
   };
 
+  handleInputChange = (field: string) => (text: string) => {
+    this.setState({
+      [field]: text,
+    });
+    Reactotron.log(this.state);
+  };
+
   render() {
+    const { username, password } = this.state;
+    const { onLoginPress } = this.props; 
     return (
       <View style={styles.container}>
         <Text style={styles.header}>Pairity</Text>
         <View style={styles.inputContainer}>
-          <InputWithLabel label="Username" onPress="test" />
-          <InputWithLabel label="Password" onPress="test" />
+          <InputWithLabel
+            label="Username"
+            func={this.handleInputChange('username')}
+          />
+          <InputWithLabel
+            label="Password"
+            func={this.handleInputChange('password')}
+          />
           <View style={styles.buttonContainer}>
             <Button
               title="Submit"
               buttonStyle={styles.button}
               containerViewStyle={styles.inputContainer}
-              onPress={() => this.props.onLoginPress}
+              onPress={() => onLoginPress(username, password)}
             />
           </View>
           <View />
@@ -59,10 +75,12 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
+const LoginWithNav = withNavigation(Login);
+
 export default connect(
   null,
   mapDispatchToProps,
-)(withNavigation(Login));
+)(LoginWithNav);
 
 const styles = StyleSheet.create({
   container: {

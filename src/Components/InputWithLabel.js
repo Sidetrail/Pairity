@@ -5,14 +5,13 @@ import { StyleSheet, Text, View, TextInput } from 'react-native';
 type Props = {
   func: Function,
   label: string,
-  onPress: any,
 };
 
-const InputWithLabel = ({ func, label, onPress }: Props) => (
+const InputWithLabel = ({ func, label }: Props) => (
   <View style={styles.container}>
     <Text style={styles.label}>{label}</Text>
     <View style={styles.inputContainer}>
-      <TextInput style={styles.input} onChangeText={func} />
+      <TextInput style={styles.input} onChangeText={text => func(text)} />
     </View>
   </View>
 );

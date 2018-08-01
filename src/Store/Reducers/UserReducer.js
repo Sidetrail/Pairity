@@ -1,3 +1,5 @@
+import Reactotron from 'reactotron-react-native';
+
 const initialState = {
   username: '',
   password: '',
@@ -6,7 +8,9 @@ const initialState = {
 const UserReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'LOGIN':
-      return action.credentials;
+      Reactotron.log(state);
+
+      return action.payload;
     case 'LOGOUT':
       return initialState;
     default:
