@@ -1,9 +1,23 @@
-import { createDrawerNavigator } from 'react-navigation';
+import { createDrawerNavigator, createStackNavigator } from 'react-navigation';
+import Login from '../Screens/Login';
 import DrawerContent from './DrawerContent';
 import PairedFolders from '../Screens/PairedFolders';
 import Devices from '../Screens/Devices';
-import Login from '../Screens/Login';
 import Settings from '../Screens/Settings';
+import AddNewFolder from '../Screens/AddNewFolder';
+
+const PrimaryNav = createStackNavigator(
+  {
+    Login: { screen: Login },
+    // Drawer: { screen: Drawer },
+  },
+  {
+    headerMode: 'none',
+    initialRouteName: 'Login',
+  },
+);
+
+export default PrimaryNav;
 
 export const Drawer = createDrawerNavigator(
   {

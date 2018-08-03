@@ -2,10 +2,10 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
 
-type Props = {
+type Props = {|
   func: Function,
   label: string,
-};
+|};
 
 const InputWithLabel = ({ func, label }: Props) => (
   <View style={styles.container}>

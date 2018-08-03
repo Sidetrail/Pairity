@@ -2,10 +2,10 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 
-type Props = {
+type Props = {|
   text: string,
   icon: string,
-};
+|};
 
 const TextAndIcon = ({ text, icon }: Props) => (
   <View style={styles.container}>

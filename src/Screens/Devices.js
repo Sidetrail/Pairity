@@ -4,9 +4,9 @@ import { StyleSheet, View, ScrollView } from 'react-native';
 import Header from '../Components/Header';
 import DeviceCard from '../Components/DeviceCard';
 
-type State = {
+type State = {|
   devices: Array<Object>,
-};
+|};
 
 export default class Devices extends React.Component<null, State> {
   state = {

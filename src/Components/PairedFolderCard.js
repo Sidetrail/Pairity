@@ -5,12 +5,12 @@ import { colors } from '../Config/styles';
 import { icons } from '../../Assets/Images';
 import TextAndIcon from './TextAndIcon';
 
-type Props = {
+type Props = {|
   name: string,
   status: string,
   size: string,
   devices: number,
-};
+|};
 
 const PairedFolderCard = ({ name, status, size, devices }: Props) => (
   <View style={styles.container}>

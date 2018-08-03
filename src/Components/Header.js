@@ -4,9 +4,9 @@ import { Header } from 'react-native-elements';
 import { withNavigation, NavigationActions } from 'react-navigation';
 import { colors } from '../Config/styles';
 
-type Props = {
+type Props = {|
   navigation: any,
-};
+|};
 
 // rename 'headers'
 const Headers = (props: Props) => {

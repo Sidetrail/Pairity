@@ -5,7 +5,7 @@ import Reactotron from 'reactotron-react-native';
 import createSagaMiddleware from 'redux-saga';
 
 import Root from './src/Store/Reducers/Root';
-import { Drawer } from './src/Navigators/Navigation';
+import PrimaryNav from './src/Navigators/Navigation';
 import './src/Config/Reactotron';
 
 const middleWare = [];
@@ -24,7 +24,7 @@ const store = Reactotron.createStore(
 
 const App = () => (
   <Provider store={store}>
-    <Drawer />
+    <PrimaryNav />
   </Provider>
 );
 

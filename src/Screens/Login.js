@@ -8,15 +8,15 @@ import { loginAction } from '../Store/Actions/Login';
 import InputWithLabel from '../Components/InputWithLabel';
 import { colors } from '../Config/styles';
 
-type Props = {
+type Props = {|
   navigation: any,
-  submitLogin: Function,
-};
+  submitLogin: (string, string) => void,
+|};
 
-type State = {
+type State = {|
   username: string,
   password: string,
-};
+|};
 
 class Login extends React.Component<Props, State> {
   state = {

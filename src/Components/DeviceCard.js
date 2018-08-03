@@ -3,12 +3,12 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { colors } from '../Config/styles';
 
-type Props = {
+type Props = {|
   name: string,
   icon: string,
   activePairs: number,
   status: string,
-};
+|};
 
 const DeviceCard = ({ name, icon, activePairs, status }: Props) => (
   <View style={styles.container}>

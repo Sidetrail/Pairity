@@ -4,9 +4,9 @@ import { StyleSheet, ScrollView, View } from 'react-native';
 import PairedFolderCard from '../Components/PairedFolderCard';
 import Header from '../Components/Header';
 
-type State = {
+type State = {|
   folders: Array<Object>,
-};
+|};
 
 export default class PairedFolders extends React.Component<null, State> {
   state = {
