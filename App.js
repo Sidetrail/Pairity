@@ -1,18 +1,21 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { compose, applyMiddleware } from 'redux';
-import createSagaMiddleware from 'redux-saga';
 import Reactotron from 'reactotron-react-native';
-import { Drawer } from './src/Navigators/Navigation';
+import createSagaMiddleware from 'redux-saga';
+
 import Root from './src/Store/Reducers/Root';
+import { Drawer } from './src/Navigators/Navigation';
 import './src/Config/Reactotron';
 
-const sagaMonitor = Reactotron.createSagaMonitor();
-
 const middleWare = [];
+
+// saga
+const sagaMonitor = Reactotron.createSagaMonitor();
 const sagaMiddleware = createSagaMiddleware({ sagaMonitor });
 middleWare.push(sagaMiddleware);
 
+// reacto
 const store = Reactotron.createStore(
   Root,
   {},

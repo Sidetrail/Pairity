@@ -29,7 +29,8 @@
    "react/no-unescaped-entities": "off",
    "react/no-array-index-key": "off",
    "prefer-promise-reject-errors": "off",
-   "prettier/prettier": [
+   "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],  
+    "prettier/prettier": [
     "error",
     {
      "singleQuote": true,
@@ -38,6 +39,16 @@
     }
    ],
    "semi": 2
+  },
+  "globals": {
+    "ErrorUtils": true,
+    "FormData": true,
+    "fetch": true,
+    "navigationProp": true,
+    "snapshot": true,
+    "shallowRender": true,
+    "unwrap": true,
+    "cast": true
   },
   "env": {
    "jest": true

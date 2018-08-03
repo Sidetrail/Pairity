@@ -2,7 +2,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { StyleSheet, View, Text } from 'react-native';
-import Reactotron from 'reactotron-react-native';
 import { Button } from 'react-native-elements';
 import { withNavigation, NavigationActions } from 'react-navigation';
 import { loginAction } from '../Store/Actions/Login';
@@ -11,7 +10,7 @@ import { colors } from '../Config/styles';
 
 type Props = {
   navigation: any,
-  dispatch: any,
+  submitLogin: Function,
 };
 
 type State = {
@@ -25,23 +24,23 @@ class Login extends React.Component<Props, State> {
     password: 'derp',
   };
 
-  navigateToHome = () => {
+  loginAndGoToHomePage = () => {
+    const { username, password } = this.state;
+    const { submitLogin, navigation } = this.props;
+    submitLogin(username, password);
     const navigate = NavigationActions.navigate({
       routeName: 'PairedFolders',
     });
-    this.props.navigation.dispatch(navigate);
+    navigation.dispatch(navigate);
   };
 
   handleInputChange = (field: string) => (text: string) => {
     this.setState({
       [field]: text,
     });
-    Reactotron.log(this.state);
   };
 
   render() {
-    const { username, password } = this.state;
-    const { onLoginPress } = this.props; 
     return (
       <View style={styles.container}>
         <Text style={styles.header}>Pairity</Text>
@@ -59,7 +58,7 @@ class Login extends React.Component<Props, State> {
               title="Submit"
               buttonStyle={styles.button}
               containerViewStyle={styles.inputContainer}
-              onPress={() => onLoginPress(username, password)}
+              onPress={() => this.loginAndGoToHomePage()}
             />
           </View>
           <View />
@@ -70,13 +69,12 @@ class Login extends React.Component<Props, State> {
 }
 
 const mapDispatchToProps = dispatch => ({
-  onLoginPress: (username, password) => {
+  submitLogin: (username, password) => {
     dispatch(loginAction(username, password));
   },
 });
 
 const LoginWithNav = withNavigation(Login);
-
 export default connect(
   null,
   mapDispatchToProps,

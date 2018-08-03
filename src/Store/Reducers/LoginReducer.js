@@ -5,11 +5,10 @@ const initialState = {
   password: '',
 };
 
-const UserReducer = (state = initialState, action) => {
+const LoginReducer = (state = initialState, action) => {
   switch (action.type) {
     case 'LOGIN':
       Reactotron.log(state);
-
       return action.payload;
     case 'LOGOUT':
       return initialState;
@@ -18,4 +17,4 @@ const UserReducer = (state = initialState, action) => {
   }
 };
 
-export default UserReducer;
+export default LoginReducer;
