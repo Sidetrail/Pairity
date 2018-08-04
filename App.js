@@ -3,12 +3,14 @@ import { Provider } from 'react-redux';
 import { compose, applyMiddleware } from 'redux';
 import Reactotron from 'reactotron-react-native';
 import createSagaMiddleware from 'redux-saga';
-
-import Root from './src/Store/Reducers/Root';
-import PrimaryNav from './src/Navigators/Navigation';
+import { AppNavigator, reduxMiddleware } from './src/Navigators/Navigation';
+import AppReducer from './src/Store/Reducers/NavigationReducer';
 import './src/Config/Reactotron';
 
 const middleWare = [];
+
+// redux
+middleWare.push(reduxMiddleware);
 
 // saga
 const sagaMonitor = Reactotron.createSagaMonitor();
@@ -17,14 +19,14 @@ middleWare.push(sagaMiddleware);
 
 // reacto
 const store = Reactotron.createStore(
-  Root,
+  AppReducer,
   {},
   compose(applyMiddleware(...middleWare)),
 );
 
 const App = () => (
   <Provider store={store}>
-    <PrimaryNav />
+    <AppNavigator />
   </Provider>
 );
 
