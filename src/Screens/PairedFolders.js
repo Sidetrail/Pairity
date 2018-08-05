@@ -2,7 +2,6 @@
 import React from 'react';
 import { StyleSheet, ScrollView, View } from 'react-native';
 import PairedFolderCard from '../Components/PairedFolderCard';
-import Header from '../Components/Header';
 
 type State = {|
   folders: Array<Object>,
@@ -62,7 +61,6 @@ export default class PairedFolders extends React.Component<null, State> {
     ));
     return (
       <View style={styles.container}>
-        <Header />
         <ScrollView
           style={styles.scrollView}
           contentContainerStyle={{ alignItems: 'center' }}

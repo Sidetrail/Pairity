@@ -1,9 +1,8 @@
 /* @flow */
 import React from 'react';
 import { connect } from 'react-redux';
-import { StyleSheet, View, Text } from 'react-native';
-import { Button } from 'react-native-elements';
-import { withNavigation, NavigationActions } from 'react-navigation';
+import { StyleSheet, View, Text, Button } from 'react-native';
+import { NavigationActions } from 'react-navigation';
 import { loginAction } from '../Store/Actions/Login';
 import InputWithLabel from '../Components/InputWithLabel';
 import { colors } from '../Config/styles';
@@ -74,11 +73,10 @@ const mapDispatchToProps = dispatch => ({
   },
 });
 
-const LoginWithNav = withNavigation(Login);
 export default connect(
   null,
   mapDispatchToProps,
-)(LoginWithNav);
+)(Login);
 
 const styles = StyleSheet.create({
   container: {

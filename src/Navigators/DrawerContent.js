@@ -1,5 +1,6 @@
 /* @flow */
 import React from 'react';
+import Reactotron from 'reactotron-react-native';
 import { NavigationActions } from 'react-navigation';
 import { StyleSheet, View, Button } from 'react-native';
 
@@ -8,13 +9,13 @@ type Props = {|
 |};
 
 const DrawerContent = (props: Props) => {
+  const { navigation } = props;
   const navigateToScreen = route => () => {
     const navigate = NavigationActions.navigate({
       routeName: route,
     });
-    props.navigation.dispatch(navigate);
+    navigation.dispatch(navigate);
   };
-
   return (
     <View style={styles.container}>
       <Button
@@ -23,7 +24,7 @@ const DrawerContent = (props: Props) => {
       />
       <Button title="Devices" onPress={navigateToScreen('Devices')} />
       <Button title="Settings" onPress={navigateToScreen('Settings')} />
-      <Button title="Log Out" onPress={navigateToScreen('Logout')} />
+      <Button title="Log Out" onPress={() => navigation.popToTop()} />
     </View>
   );
 };

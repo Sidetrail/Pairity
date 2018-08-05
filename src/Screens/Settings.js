@@ -1,7 +1,6 @@
 /* @flow */
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Header from '../Components/Header';
 
 type State = {|
   temp: string,
@@ -15,7 +14,6 @@ export default class Settings extends React.Component<null, State> {
   render() {
     return (
       <View style={styles.container}>
-        <Header />
         <View style={styles.settingsContainer}>
           <Text>setting 1</Text>
           <Text>setting 2</Text>

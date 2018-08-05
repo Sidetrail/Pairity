@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
-import LoginReducer from './LoginReducer';
-import AppReducer from './NavigationReducer';
+import Login from './Login';
+import Navigation from './Navigation';
 
-const mainReducer = combineReducers({
-  LoginReducer,
-  AppReducer,
+const Root = combineReducers({
+  Login,
+  Navigation,
 });
 
-export default mainReducer;
+export default Root;

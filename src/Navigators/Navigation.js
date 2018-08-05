@@ -1,4 +1,6 @@
-import { createStackNavigator } from 'react-navigation';
+import React from 'react';
+import { Text } from 'react-native';
+import { createStackNavigator, createDrawerNavigator } from 'react-navigation';
 import { connect } from 'react-redux';
 import {
   reduxifyNavigator,
@@ -12,19 +14,54 @@ import Settings from '../Screens/Settings';
 
 const reduxMiddleware = createReactNavigationReduxMiddleware(
   'root',
-  state => state.nav,
+  state => state.Navigation,
+);
+export const Drawer = createDrawerNavigator(
+  {
+    PairedFolders: {
+      screen: PairedFolders,
+    },
+    Devices: {
+      screen: Devices,
+    },
+    Settings: {
+      screen: Settings,
+    },
+  },
+  {
+    contentComponent: DrawerContent,
+    drawerWidth: 250,
+    drawerPosition: 'left',
+  },
+);
+const DrawerNavigator = createStackNavigator(
+  {
+    Drawer: { screen: Drawer },
+  },
+  {
+    navigationOptions: ({ navigation }) => ({
+      title: 'Pairity',
+      headerLeft: <Text onPress={() => navigation.toggleDrawer()}>Menu</Text>,
+    }),
+  },
 );
 
-const RootNavigator = createStackNavigator({
-  Login: { screen: Login },
-  PairedFolders: { screen: PairedFolders },
-});
+const RootNavigator = createStackNavigator(
+  {
+    Login: { screen: Login },
+    DrawerNavigator: { screen: DrawerNavigator },
+  },
+  {
+    headerMode: 'none',
+  },
+);
 
 const AppWithNavigationState = reduxifyNavigator(RootNavigator, 'root');
 
 const mapStateToProps = state => ({
-  state: state.nav,
+  state: state.Navigation,
 });
+
 const AppNavigator = connect(mapStateToProps)(AppWithNavigationState);
 
 export { RootNavigator, AppNavigator, reduxMiddleware };

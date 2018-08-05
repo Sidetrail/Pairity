@@ -1,7 +1,6 @@
 /* @flow */
 import React from 'react';
 import { StyleSheet, View, ScrollView } from 'react-native';
-import Header from '../Components/Header';
 import DeviceCard from '../Components/DeviceCard';
 
 type State = {|
@@ -63,7 +62,6 @@ export default class Devices extends React.Component<null, State> {
 
     return (
       <View style={styles.container}>
-        <Header />
         <ScrollView>{devicesList}</ScrollView>
       </View>
     );
