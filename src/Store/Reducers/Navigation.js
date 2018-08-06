@@ -2,7 +2,7 @@
 import Reactotron from 'reactotron-react-native';
 import { NavigationActions } from 'react-navigation';
 import { RootNavigator } from '../../Navigators/Navigation';
-
+import type { Action, NavigationState } from '../Types';
 // Start with two routes: The Main screen, with the Login screen on top.
 const firstAction = RootNavigator.router.getActionForPathAndParams('Login');
 const tempNavState = RootNavigator.router.getStateForAction(firstAction);
@@ -12,7 +12,10 @@ const initialNavState = RootNavigator.router.getStateForAction(
   tempNavState,
 );
 
-const Navigation = (state = initialNavState, action) => {
+const Navigation = (
+  state: NavigationState = initialNavState,
+  action: Action,
+) => {
   let nextState;
   switch (action.type) {
     // case 'LOGIN':
