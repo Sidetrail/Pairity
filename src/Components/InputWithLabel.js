@@ -3,7 +3,7 @@ import React from 'react';
 import { StyleSheet, Text, View, TextInput } from 'react-native';
 
 type Props = {|
-  func: Function,
+  func: string => void,
   label: string,
 |};
 
@@ -11,7 +11,10 @@ const InputWithLabel = ({ func, label }: Props) => (
   <View style={styles.container}>
     <Text style={styles.label}>{label}</Text>
     <View style={styles.inputContainer}>
-      <TextInput style={styles.input} onChangeText={text => func(text)} />
+      <TextInput
+        style={styles.input}
+        onChangeText={(text: string) => func(text)}
+      />
     </View>
   </View>
 );

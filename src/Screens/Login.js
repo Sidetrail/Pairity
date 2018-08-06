@@ -1,5 +1,6 @@
 /* @flow */
 import React from 'react';
+import Reactotron from 'reactotron-react-native';
 import { connect } from 'react-redux';
 import { StyleSheet, View, Text, Button } from 'react-native';
 import { NavigationActions } from 'react-navigation';
@@ -8,7 +9,9 @@ import InputWithLabel from '../Components/InputWithLabel';
 import { colors } from '../Config/styles';
 
 type Props = {|
-  navigation: any,
+  navigation: {
+    dispatch: Object => void,
+  },
   submitLogin: (string, string) => void,
 |};
 
@@ -27,7 +30,7 @@ class Login extends React.Component<Props, State> {
     const { username, password } = this.state;
     const { submitLogin, navigation } = this.props;
     submitLogin(username, password);
-    const navigate = NavigationActions.navigate({
+    const navigate: Object = NavigationActions.navigate({
       routeName: 'PairedFolders',
     });
     navigation.dispatch(navigate);
@@ -67,8 +70,8 @@ class Login extends React.Component<Props, State> {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  submitLogin: (username, password) => {
+const mapDispatchToProps = (dispatch: Function) => ({
+  submitLogin: (username: string, password: string) => {
     dispatch(loginAction(username, password));
   },
 });

@@ -1,4 +1,10 @@
-export const loginAction = (username, password) => ({
+/* @flow */
+import type { ActionCreator } from '../Types';
+
+export const loginAction: ActionCreator = (
+  username: string,
+  password: string,
+) => ({
   type: 'LOGIN',
   payload: {
     username,
@@ -6,7 +12,7 @@ export const loginAction = (username, password) => ({
   },
 });
 
-export const logoutAction = () => ({
+export const logoutAction: ActionCreator = () => ({
   type: 'LOGOUT',
   payload: {},
 });

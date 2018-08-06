@@ -2,9 +2,9 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-type State = {
+type State = {|
   temp: string,
-};
+|};
 
 export default class AddNewFolder extends React.Component<null, State> {
   state = {
