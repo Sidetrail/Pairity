@@ -1,25 +1,34 @@
+/* @flow */
 import React from 'react';
-import { StyleSheet, View, Image } from 'react-native';
-import PairedFolders from './src/Screens/PairedFolders';
+import { Provider } from 'react-redux';
+import { compose, applyMiddleware } from 'redux';
+import Reactotron from 'reactotron-react-native';
+import createSagaMiddleware from 'redux-saga';
+import { AppNavigator, reduxMiddleware } from './src/Navigators/Navigation';
+import Root from './src/Store/Reducers/Root';
+import './src/Config/Reactotron';
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
+const middleWare = [];
 
-        <PairedFolders />
+// redux
+middleWare.push(reduxMiddleware);
 
-      </View>
-    );
-  }
-}
+// saga
+const sagaMonitor = Reactotron.createSagaMonitor();
+const sagaMiddleware = createSagaMiddleware({ sagaMonitor });
+middleWare.push(sagaMiddleware);
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    overflow: 'scroll',
-  },
-});
+// reacto
+const store = Reactotron.createStore(
+  Root,
+  {},
+  compose(applyMiddleware(...middleWare)),
+);
+
+const App = () => (
+  <Provider store={store}>
+    <AppNavigator />
+  </Provider>
+);
+
+export default App;

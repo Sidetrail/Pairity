@@ -2,30 +2,23 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { colors } from '../Config/styles';
-import { icons } from '../../Assets/Images';
-import TextAndIcon from './TextAndIcon';
 
 type Props = {|
   name: string,
+  icon: string,
+  activePairs: number,
   status: string,
-  size: string,
-  devices: number,
 |};
 
-const PairedFolderCard = ({ name, status, size, devices }: Props) => (
+const DeviceCard = ({ name, icon, activePairs, status }: Props) => (
   <View style={styles.container}>
-    <View style={styles.textRow}>
-      <Text style={styles.text}>{name}</Text>
-      <TextAndIcon text="Status: " icon={icons[status]} />>
-    </View>
-    <View style={styles.textRow}>
-      <Text style={styles.text}>Size: {size}</Text>
-      <Text style={styles.text}>Devices: {devices}</Text>
-    </View>
+    <Text style={styles.text}>{name}</Text>
+    <Text style={styles.text}>Active Pairs: {activePairs}</Text>
+    <Text style={styles.text}>{status}</Text>
   </View>
 );
 
-export default PairedFolderCard;
+export default DeviceCard;
 
 const styles = StyleSheet.create({
   container: {

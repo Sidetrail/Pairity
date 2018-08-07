@@ -1,7 +1,13 @@
+/* @flow */
 import React from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 
-const TextAndIcon = ({ text, icon }) => (
+type Props = {|
+  text: string,
+  icon: string,
+|};
+
+const TextAndIcon = ({ text, icon }: Props) => (
   <View style={styles.container}>
     <View>
       <Text style={styles.text}>{text}</Text>

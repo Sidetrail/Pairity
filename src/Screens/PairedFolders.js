@@ -1,8 +1,13 @@
+/* @flow */
 import React from 'react';
-import { StyleSheet, ScrollView } from 'react-native';
+import { StyleSheet, ScrollView, View } from 'react-native';
 import PairedFolderCard from '../Components/PairedFolderCard';
 
-export default class PairedFolders extends React.Component {
+type State = {|
+  folders: Array<Object>,
+|};
+
+export default class PairedFolders extends React.Component<null, State> {
   state = {
     folders: [
       {
@@ -46,21 +51,32 @@ export default class PairedFolders extends React.Component {
   render() {
     const { folders } = this.state;
     const pairedFolders = folders.map(folder => (
-      <PairedFolderCard folder={folder} key={folder.id} />
+      <PairedFolderCard
+        name={folder.name}
+        status={folder.status}
+        size={folder.size}
+        devices={folder.devices}
+        key={folder.id}
+      />
     ));
     return (
-      <ScrollView
-        style={styles.container}
-        contentContainerStyle={{ alignItems: 'center' }}
-      >
-        {pairedFolders}
-      </ScrollView>
+      <View style={styles.container}>
+        <ScrollView
+          style={styles.scrollView}
+          contentContainerStyle={{ alignItems: 'center' }}
+        >
+          {pairedFolders}
+        </ScrollView>
+      </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+  },
+  scrollView: {
     flex: 1,
     backgroundColor: '#fff',
     width: '100%',
